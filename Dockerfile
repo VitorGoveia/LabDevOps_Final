@@ -13,5 +13,3 @@ COPY . .
 EXPOSE 1313
 # Comando para rodar a aplicação
 CMD ["python", "app.py"]
-
-CMD ["py", "teste_app.py"]
