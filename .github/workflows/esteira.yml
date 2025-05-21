@@ -1,5 +1,3 @@
-# .github/workflows/esteira.yml
-
 name: CI/CD Pipeline
 
 on:
@@ -34,3 +32,17 @@ jobs:
       - name: Rodar testes
         run: |
           python teste_app.py
+
+  deploy:
+        needs: build-and-test
+        runs-on: ubuntu-latest
+        steps:
+          - name: Deploy render
+            env:
+              RENDER_API_KEY: ${{ secrets.CHAVE_DEPLOY_SECRETA }}
+              RENDER_SERVICE_ID: ${{ secrets.ID_DEPLOY_RENDER_SECRETO }}
+            run: |
+              curl -X POST https://api.render.com/deploy/sync \
+                -H "Authorization: Bearer $RENDER_API_KEY" \
+                -H "Content-Type: application/json" \
+                -d '{"serviceId": "'"$RENDER_SERVICE_ID"'"}'
