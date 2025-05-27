@@ -23,6 +23,7 @@ jobs:
       - name: Lançar DOCKERFILE 
         run: |
           docker build -t dockerfile .
+          docker run dockerfile
   test:
     needs: build
     runs-on: ubuntu-latest
