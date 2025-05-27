@@ -22,14 +22,19 @@ jobs:
           pip install -r requirements.txt
       - name: Lançar DOCKERFILE 
         run: |
-          docker build -t dockerfile:latest .
-          docker run dockerfile
+          docker build -t meu-app:latest .        
+          docker run --rm meu-app:latest 
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout o código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3               
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
       - name: Rodar testes
         run: |
