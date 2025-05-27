@@ -38,7 +38,7 @@ jobs:
 
       - name: Rodar testes
         run: |
-          python teste_app.py
+          docker-compose run api python -m unittest discover
   deploy:
         needs: test
         runs-on: ubuntu-latest
