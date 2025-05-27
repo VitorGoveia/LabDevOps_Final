@@ -14,7 +14,7 @@ class APITestCase(unittest.TestCase):
     def teste_rotas_items(self):
         response = self.client.get('/items')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json, {"items":["XBOX","PlayStation","Nintendo Switch"]})
+        self.assertEqual(response.json, {"items":['item1', 'item2', 'item3']})
 
     def teste_rota_GET_login(self):
         response = self.client.get('/login')

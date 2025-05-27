@@ -21,7 +21,7 @@ def home():
 
 @app.route('/items', methods=['GET'])
 def get_items():
-    return jsonify(items=['XBOX', 'PlayStation', 'Nintendo Switch'])
+    return jsonify(items=['item1', 'item2', 'item3'])
 
 @app.route('/login', methods=['POST'])
 def login():
