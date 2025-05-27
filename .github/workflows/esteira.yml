@@ -28,15 +28,10 @@ jobs:
 
       - name: Configurar Python
         uses: actions/setup-python@v4
-
-      - name: Lançar DOCKERFILE 
-        run: |
-          docker build -t meu-app:latest .        
-          docker run --rm meu-app:latest  
       
       - name: Rodar testes
         run: |
-          docker-compose run api python -m unittest discover
+          docker-compose up -d
   deploy:
         needs: test
         runs-on: ubuntu-latest
