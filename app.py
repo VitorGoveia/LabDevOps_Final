@@ -4,7 +4,7 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 
 app = Flask(__name__)
 
-app.config['JWT_SECRET_KEY'] = 'INDIANA_JONES'
+app.config['JWT_SECRET_KEY'] = 'INDIANA_JONES_E_RUIM'
 jwt = JWTManager(app)
 
 SWAGGER_URL = '/swagger'
@@ -26,7 +26,7 @@ def get_items():
 @app.route('/login', methods=['POST'])
 def login():
     access_token = create_access_token(identity="user")
-    return jsonify(acess_token=access_token)
+    return jsonify(access_token=access_token)
 
 @app.route('/protected', methods=['GET'])
 @jwt_required()
@@ -35,4 +35,3 @@ def protected():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=1313)
-
