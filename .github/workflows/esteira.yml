@@ -28,6 +28,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout o código
+        uses: actions/checkout@v3
+
       - name: Rodar testes
         run: |
           python teste_app.py
