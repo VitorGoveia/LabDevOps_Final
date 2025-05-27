@@ -22,7 +22,7 @@ jobs:
           pip install -r requirements.txt
       - name: Lançar DOCKERFILE 
         run: |
-          docker build -t Dockerfile .
+          docker build -t dockerfile .
   test:
     needs: build
     runs-on: ubuntu-latest
