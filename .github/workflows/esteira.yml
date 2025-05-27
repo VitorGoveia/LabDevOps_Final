@@ -31,7 +31,7 @@ jobs:
 
       - name: Lançar DOCKERFILE 
         run: |
-          docker run meu-app:latest        
+          docker run meu-app       
       
       - name: Rodar testes
         run: |
