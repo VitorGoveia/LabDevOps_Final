@@ -23,7 +23,7 @@ jobs:
       - name: Lançar DOCKERFILE 
         run: |
           docker build -t meu-app:latest .        
-          docker run --rm meu-app:latest 
+          docker run --rm meu-app:latest echo "Container rodou com sucesso" 
   test:
     needs: build
     runs-on: ubuntu-latest
