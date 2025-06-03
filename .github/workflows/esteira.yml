@@ -39,16 +39,16 @@ jobs:
         run: |
           docker-compose run api python -m unittest discover
   deploy:
-        needs: test
-        runs-on: ubuntu-latest
-        steps:
-          - name: Deploy render
-            env:
-              RENDER_API_KEY: ${{ secrets.CHAVE_DEPLOY_SECRETA }}
-              RENDER_SERVICE_ID: ${{ secrets.ID_DEPLOY_RENDER_SECRETO }}
-            run: |            
-              curl --request POST \
-              --url https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys \
-              --header "Authorization: Bearer $RENDER_API_KEY" \
-              --header "Content-Type: application/json" \
-              --data '{}'
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy render
+        env:
+          RENDER_API_KEY: ${{ secrets.CHAVE_DEPLOY_SECRETA }}
+          RENDER_SERVICE_ID: ${{ secrets.ID_DEPLOY_RENDER_SECRETO }}
+        run: |            
+          curl --request POST \
+          --url https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys \
+          --header "Authorization: Bearer $RENDER_API_KEY" \
+          --header "Content-Type: application/json" \
+          --data '{}'
